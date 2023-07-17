@@ -15,12 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Install nightly toolchain
         uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
           profile: minimal
           components: rustfmt, clippy
+
       - name: Fmt
         run: cargo +nightly fmt --check --verbose
       - name: Clippy
